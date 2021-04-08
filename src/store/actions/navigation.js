@@ -1,0 +1,1 @@
+export const SET_AUTH_NAV_NAME = "SET_AUTH_NAV_NAME"

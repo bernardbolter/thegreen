@@ -33,6 +33,7 @@ import {
 } from 'redux-firestore'
 
 import colorsReducer from '../src/store/reducers/colors'
+import navigationReducer from '../src/store/reducers/navigation'
 
 import SplashScreen from '../src/screens/SplashScreen'
 import AuthSwitch from '../src/navigation/AuthSwitch'
@@ -52,7 +53,8 @@ firebase.storage()
 const rootReducer = combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
-  colors: colorsReducer
+  colors: colorsReducer,
+  navigation: navigationReducer
 })
 
 const initialState = {}
