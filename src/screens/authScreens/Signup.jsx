@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { Formik, Field, Form } from 'formik'
@@ -6,7 +6,6 @@ import * as yup from 'yup'
 
 import Sponser from '../../components/modals/Sponser'
 import Extracts from '../../components/modals/Extracts'
-
 
 import SubmitButton from '../../components/SubmitButton'
 
@@ -19,6 +18,7 @@ import { ReactComponent as TwitterLogo } from '../../svg/authSvgs/twitterLogo.sv
 import { ReactComponent as FacebookLogo } from '../../svg/authSvgs/facebookLogo.svg'
 import { ReactComponent as GoogleLogo } from '../../svg/authSvgs/googleLogo.svg'
 
+import '../../styles/forms.scss'
 import './authScreens.scss'
 
 import {  SET_AUTH_NAV_NAME } from '../../store/actions/navigation'
@@ -38,6 +38,9 @@ const signupSchema = yup.object({
 const Signup = () => {
     const dispatch = useDispatch()
     const colors = useSelector(state => state.colors)
+    const [passwordVisible, setPasswordVisible] = useState(false)
+    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false)
+
     return (
         <div 
             className="signup-screen"
@@ -45,7 +48,9 @@ const Signup = () => {
         >
             <div className="signup-header">
                 <div className="brand-top-left-svg">
-                    <BrandTopLeft />
+                    <BrandTopLeft 
+                        style={{ fill: colors.dark } }
+                    />
                 </div>
                 <div
                     className="signup-link"
@@ -55,19 +60,25 @@ const Signup = () => {
                     })}
                 >
                     <div className="signup-svg">
-                        <SignupTitle />
+                        <SignupTitle 
+                            style={{ fill: colors.dark }}
+                        />
                     </div>
                     <div className="signup-bot-text-container">
                         <h5>already have an account</h5>
                         <div className="circle-arrow-svg">
-                            <CircleArrow />
+                            <CircleArrow 
+                                style={{ fill: colors.dark }}
+                            />
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="signup-text">
-                <h3>In 10 easy steps you’ll be in contact with qualified docter onine, while helping subsidies a veterans access.</h3>
+                <h3
+                    style={{ color: colors.dark }}
+                >In 10 easy steps you’ll be in contact with qualified docter onine, while helping subsidies a veterans access.</h3>
             </div>
 
             <Formik
@@ -80,27 +91,52 @@ const Signup = () => {
                 }}
             >
                 {(signupProps) => (
-                    <Form>
+                    <Form
+                        className="signup-form"
+                    >
                         <Field
                             id="email"
                             name="email"
                             placeholder="enter email"
-                            className="signup-input"
+                            className="input"
+                            style={{ borderColor: colors.dark }}
+                            inputMode="email"
                         />
                         <p className="error">{signupProps.touched.email && signupProps.errors.email}</p>
-                        <Field
-                            id="password"
-                            name="password"
-                            placeholder="enter password"
-                            className="signup-input"
-                        />
+                        <div className="input-eye-container">
+                            <Field
+                                id="password"
+                                name="password"
+                                placeholder="enter password"
+                                className="input"
+                                style={{ borderColor: colors.dark }}
+                                type={!passwordVisible ? "password" : null}
+                            />
+                            <div 
+                                className="eye-svg"
+                                onClick={() => setPasswordVisible(!passwordVisible)}    
+                            >
+                                {passwordVisible ? <EyeOpen /> : <EyeClosed /> }
+                            </div>
+                        </div>
                         <p className="error">{signupProps.touched.password && signupProps.errors.password}</p>
-                        <Field
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            placeholder="confirm password"
-                            className="signup-input"
-                        />
+                        <div className="input-eye-container">
+                            <Field
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="confirm password"
+                                className="input"
+                                style={{ borderColor: colors.dark }}
+                                type={!confirmPasswordVisible ? "password" : null}
+                            />
+                            <div
+                                className="eye-svg"
+                                onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+                                style={{ borderBottomColor: colors.dark }}
+                            >
+                                {confirmPasswordVisible ? <EyeOpen style={{ fill: colors.dark }}/> : <EyeClosed style={{ fill: colors.dark }} />}
+                            </div>
+                        </div>
                         <p className="error">{signupProps.touched.confirmPassword && signupProps.errors.confirmPassword}</p>
                         <button
                             type="submit"
@@ -114,7 +150,9 @@ const Signup = () => {
                 )}
             </Formik>
             <div className="signup-login-with">
-                <h4>or login with</h4>
+                <h4
+                    style={{ color: colors.dark }}
+                >or login with</h4>
             </div>
             <div className="signup-socials-container">
                 <div

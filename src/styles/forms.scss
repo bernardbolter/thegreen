@@ -1,0 +1,45 @@
+//////////////////////////////////////////////////////////
+// INPUT styles
+
+.input {
+    width: 100%;
+    background: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom-width: 1px;
+    font-size: 20px;
+    color: rgba(22,22,22,.7);
+    padding: 3px 6px;
+    margin: 12px 0 0 0;
+}
+
+input::placeholder {
+    opacity: .3;
+}
+
+.input-eye-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .eye-svg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        opacity: .7;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+}
+
+.error {
+    height: 20px;
+    color: #AB6034;
+    font-size: 10px;
+    margin: 0;
+    padding: 6px 0 0 0;
+}
