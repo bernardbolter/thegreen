@@ -5,8 +5,17 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    position: fixed;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.signup-bottom-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -17,6 +26,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    position: fixed;
     flex-direction: column;
     justify-content: center;
     align-items: center;

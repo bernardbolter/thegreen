@@ -9,8 +9,8 @@ const Login = () => {
     const dispatch = useDispatch()
     const colors = useSelector(state => state.colors)
     return (
-        <section 
-            className="login-screen"
+        <div 
+            className="login-screen left"
             style={{ backgroundColor: colors.lightSecondary }}    
         >
             <h1
@@ -26,7 +26,7 @@ const Login = () => {
             >
                 go to Signup
             </button>
-        </section>
+        </div>
     )
 }
 

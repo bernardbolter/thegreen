@@ -1,0 +1,33 @@
+.modal-enter {
+    transform: translateY(0vh);
+}
+
+.modal-enter-active {
+    transform: translateY(-100vh);
+    transition: transform 1000ms ease-in-out;
+}
+
+.modal-enter-done {
+    transform: translateY(-100vh);
+}
+
+.modal-exit {
+    transform: translateY(-100vh);
+}
+
+.modal-exit-active {
+    transform: translateY(0vh);
+    transition: transform 1000ms ease-in-out;
+}
+
+.modal-exit-done {
+    transform: translateY(0vh);
+}
+
+.modal-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1001;
+    background: rgba(255,255,255,0.5);
+}
