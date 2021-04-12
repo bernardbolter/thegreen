@@ -5,8 +5,8 @@ import {
     CSSTransition
 } from 'react-transition-group'
 
-import { ReactComponent as OurPartner } from '../../svg/sponserSvgs/ourPartner.svg'
-import { ReactComponent as Brand } from '../../svg/sponserSvgs/brand.svg'
+import { ReactComponent as OurPartner } from '../../svg/modalSvgs/ourPartner.svg'
+import { ReactComponent as Brand } from '../../svg/modalSvgs/brand.svg'
 
 import backgroundBud from '../../img/backgroundBud.jpg'
 import veteranLogo from '../../img/veteranLogo.png'
@@ -14,7 +14,7 @@ import veteranLogo from '../../img/veteranLogo.png'
 import './modals.scss'
 
 const Sponser = () => {
-    const [modalOpen, setModalOpen] = useState(false)
+    const [sponserOpen, setSponserOpen] = useState(false)
     const nodeRef = useRef(null)
     const colors = useSelector(state => state.colors)
 
@@ -22,7 +22,7 @@ const Sponser = () => {
         <div className="sponser-container">
             <div 
                 className="sponser-logo-button"
-                onClick={() => setModalOpen(true)}
+                onClick={() => setSponserOpen(true)}
             >
                 <img
                     src={veteranLogo}
@@ -31,7 +31,7 @@ const Sponser = () => {
             </div>
             <CSSTransition
                 classNames="sponser-modal"
-                in={modalOpen}
+                in={sponserOpen}
                 timeout={{ enter: 600 , exit: 600 }}
                 unmountOnExit
                 appear
@@ -68,7 +68,7 @@ const Sponser = () => {
 
                         <div 
                             className="sponser-close-button"
-                            onClick={() => setModalOpen(false)}
+                            onClick={() => setSponserOpen(false)}
                         >
                             <h2
                                 style={{ color: colors.dark, opacity: .5 }}
