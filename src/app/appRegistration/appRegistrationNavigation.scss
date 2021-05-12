@@ -1,0 +1,181 @@
+// BUTTON STYLES
+.app-reg-nav-button {
+    position: fixed;
+    top: 20px;
+    z-index: 1003;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+
+    @media screen and ( min-width: 415px ) {
+        width: 33px;
+        height: 33px;
+    }
+
+    .app-reg-nav-button-one {
+        width: 85%;
+        height: 2px;
+        background: #333;
+        transform: rotate(0deg);
+        transition: all 500ms ease-in-out;
+    }
+
+    .app-reg-nav-button-one-on {
+        width: 100%;
+        transform: rotate(-225deg) translate(3px, -6px);
+        transition: all 500ms ease-in-out;
+        background-color: rgba(255,255,255,.7) !important;
+
+        @media screen and ( min-width: 415px ) {
+            transform: rotate(-225deg) translate(7px, -10px);
+        }
+    }
+
+    .app-reg-nav-button-two {
+        width: 75%;
+        height: 2px;
+        opacity: 1;
+    }
+
+    .app-reg-nav-button-two-on {
+        opacity: 0;
+        transition: opacity 500ms ease-in-out;
+    }
+
+    .app-reg-nav-button-three {
+        width: 100%;
+        height: 2px;
+        background: #333;
+        transform: rotate(0deg);
+        transition: all 500ms ease-in-out;
+    }
+
+    .app-reg-nav-button-three-on {
+        background-color: rgba(255,255,255,.7) !important;
+        transform: rotate(225deg) translate(11px,15px);
+        transition: all 500ms ease-in-out;
+    }
+}
+
+// CONTAINER STYLES
+
+.app-reg-nav-fade-enter {
+    opacity: 0 !important;
+    z-index: 1001;
+}
+
+.app-reg-nav-fade-enter-active {
+    transition: opacity 500ms ease-in-out;
+    opacity: 1 !important;
+}
+.app-reg-nav-fade-enter-done {
+    opacity: 1 !important;
+    z-index: 1001;
+}
+
+.app-reg-nav-fade-exit {
+    opacity: 1 !important;
+    z-index: 1001;
+}
+
+.app-reg-nav-fade-exit-active {
+    transition: opacity 500ms ease-in-out;
+    opacity: 0 !important;
+}
+
+.app-reg-nav-fade-exit-done {
+    opacity: 0 !important;
+    z-index: -1001;
+}
+
+.app-reg-nav-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.app-reg-nav-progress-container {
+    position: fixed;
+    top: 70px;
+    left: 30px;
+
+    .app-reg-nav-progress-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        h3 {
+            font-family: "Bebas Neue";
+            font-size: 15px;
+            margin: 8px 0 8px 10px;
+            letter-spacing: .05em;
+
+            @media screen and ( min-width: 387px) {
+                font-size: 17px;
+                margin: 10px 0 10px 10px; 
+            }
+
+            @media screen and ( min-width: 550px) {
+                font-size: 19px;
+                margin: 12px 0 12px 10px; 
+            }
+        }
+    }
+}
+
+.app-reg-nav-home {
+    position: fixed;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    .splash-brand {
+        width: 70px;
+        height: 70px;
+
+        @media screen and (min-width: 415px) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .app-reg-nav-link {
+        font-family: 'Bebas Neue';
+        text-decoration: none;
+        margin: 25px 0 0 0;
+
+        h3 {
+            font-size: 16px;
+            padding: 0;
+            margin: 0;
+
+            @media screen and (min-width: 415px) {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.app-reg-nav-bottom-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    bottom: 20px;
+    width: 90%;
+    margin-left: 5%;
+}

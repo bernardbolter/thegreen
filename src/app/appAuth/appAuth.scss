@@ -1,0 +1,242 @@
+///////////////////////////////////////
+// AUTH switch styles
+
+.slide-left-enter {
+    transform: translateX(100%);
+    position: fixed;
+}
+
+.slide-left-enter-active {
+    transform: translateX(0%);
+    transition: transform 500ms ease-in-out;
+    position: fixed;
+}
+
+.slide-left-exit {
+    transform: translateX(0%);
+    position: relative;
+}
+
+.slide-left-exit-active {
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+    position: fixed;
+}
+
+.slide-right-enter {
+    transform: translateX(-100%);
+    position: fixed;
+}
+
+.slide-right-enter-active {
+    transform: translateX(0%);
+    transition: transform 500ms ease-in-out;
+    position: fixed;
+}
+
+.slide-right-exit {
+    transform: translateX(0%);
+    position: relative;
+}
+
+.slide-right-exit-active {
+    transform: translateX(-100%);
+    transition: transform 500ms ease-in-out;
+    position: fixed;
+}
+
+///////////////////////////////////////
+// AUTH screen styles
+
+.auth-screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-background {
+    width: 100%;
+    z-index: -1;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-repeat: repeat;
+}
+
+.auth-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 24px;
+    margin-bottom: 18px;
+
+    .brand-top-left-svg {
+        width: 80px;
+        margin: 6px 0 0 12px;
+
+        @media screen and (min-width: 375px) {
+            width: 100px;   
+        }
+
+        @media screen and (min-width: 414px) {
+            width: 25%;
+            max-width: 150px;
+        }
+
+        svg {
+            .background {
+                fill: rgba(255,255,255,0.15)
+            }
+        }
+    }
+
+    .brand-top-right-svg {
+        width: 80px;
+        margin: 6px 12px 0 0;
+
+        @media screen and (min-width: 375px) {
+            width: 100px;   
+        }
+
+        @media screen and (min-width: 414px) {
+            width: 25%;
+            max-width: 150px;
+        }
+
+        svg {
+            .background {
+                fill: rgba(255,255,255,0.15)
+            }
+        }
+    }
+
+    .auth-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        max-width: 250px;  
+        cursor: pointer;
+
+        .signup-svg {
+            width: 100%;
+            opacity: .8;
+        }
+
+        .login-svg {
+            width: 95%;
+            opacity: .8;
+        }
+    }
+
+    .signup-link {
+        margin: 12px 18px 0 0;
+        align-items: flex-end;
+    }
+
+    .login-link {
+        margin: 12px 0 0 18px;
+        align-items: flex-start;
+    }
+
+    .auth-link-text {
+        width: 95%;
+        margin-right: 5%;
+        background: rgba(255,255,255,0.35);
+        height: 35px;
+        display: flex;
+        flex-direction: row;
+        
+        align-items: center;
+        border-top-left-radius: 17.5px;
+        border-bottom-left-radius: 17.5px;
+        border-bottom-right-radius: 17.5px;
+
+        h5 {
+            margin: 0;
+            padding: 0;
+            opacity: .7;
+        }
+
+        .circle-arrow-svg {
+            width: 22px;
+            margin: 6px 6px 0 6px;
+            opacity: .7
+        }
+
+        .flip-svg {
+            transform: rotate(180deg);
+            margin-top: -4px;
+        }
+    }
+
+    .singup-link-text {
+        justify-content: flex-end;
+    }
+
+    .login-link-text {
+        justify-content: flex-start;
+    }
+}
+
+.auth-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.signup-text {
+    width: 90%;
+
+    @media screen and (min-width: 375px) {
+        width: 75%;
+    }
+
+    h3 {
+        opacity: .7;
+        text-indent: 50px;
+    }
+}
+
+.auth-form {
+    width: 80%;
+    margin: 0 10%;
+
+    @media screen and (min-width: 375px) {
+        width: 70%;
+        margin: 0 15%;
+    }
+}
+
+.auth-with-text {
+    opacity: .7;
+}
+
+.auth-socials-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .auth-social {
+        margin: 0 12px;
+        width: 60px;
+        cursor: pointer;
+    }
+}
+
+.auth-bottom-container {
+    width: 90%;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

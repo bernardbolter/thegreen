@@ -30,9 +30,12 @@ input::placeholder {
         align-items: center;
         width: 30px;
         height: 30px;
-        opacity: .7;
         border-bottom-width: 1px;
         border-bottom-style: solid;
+
+        svg {
+            opacity: .6
+        }
     }
 }
 
@@ -42,4 +45,22 @@ input::placeholder {
     font-size: 10px;
     margin: 0;
     padding: 6px 0 0 0;
+}
+
+.submit-error {
+    color: #AB6034;
+    font-size: 11px;
+    margin: 0;
+    padding: 6px 0 0 0;
+    text-align: center;
+}
+
+.button-container {
+    width: 100%;
+    background-color: rgba(245,241,247,0.4);
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 20px;
+    border: rgba(22,22,22,.3) 1px solid;
+    cursor: pointer;
 }

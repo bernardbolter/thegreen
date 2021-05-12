@@ -8,12 +8,12 @@ import {
 import { ReactComponent as OurPartner } from '../../svg/modalSvgs/ourPartner.svg'
 import { ReactComponent as Brand } from '../../svg/modalSvgs/brand.svg'
 
-import backgroundBud from '../../img/backgroundBud.jpg'
-import veteranLogo from '../../img/veteranLogo.png'
+import vpaLogo from '../../img/vpaLogo.png'
+import vpaLogo_white from '../../img/vpaLogo_white.png'
 
 import './modals.scss'
 
-const Sponser = () => {
+const Sponser = ({ colorOption }) => {
     const [sponserOpen, setSponserOpen] = useState(false)
     const nodeRef = useRef(null)
     const colors = useSelector(state => state.colors)
@@ -25,7 +25,7 @@ const Sponser = () => {
                 onClick={() => setSponserOpen(true)}
             >
                 <img
-                    src={veteranLogo}
+                    src={colorOption === 'white' ? vpaLogo_white : vpaLogo }
                     alt="Veteran Patient Access Logo"
                 />
             </div>
@@ -61,7 +61,7 @@ const Sponser = () => {
 
                         <div className="sponser-logo">
                             <img
-                                src={veteranLogo}
+                                src={vpaLogo}
                                 alt="Veteran Patient Access Logo"
                             />
                         </div>
@@ -76,11 +76,7 @@ const Sponser = () => {
                         </div>
                     </div>
 
-                    <div className="sponser-background"
-                        style={{
-                            backgroundImage: `url(${backgroundBud})`
-                        }} 
-                    />
+                    <div className="sponser-background" />
                 </div>
             </CSSTransition> 
         </div>

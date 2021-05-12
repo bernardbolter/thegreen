@@ -1,10 +1,9 @@
-import React from 'react'
-import { Provider, useSelector } from 'react-redux'
+import React, { Suspense, useEffect } from 'react'
+import { Provider, useSelector, useDispatch } from 'react-redux'
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom'
 
 import firebase from 'firebase/app'
@@ -24,26 +23,38 @@ import {
   ReactReduxFirebaseProvider,
   firebaseReducer,
   getFirebase,
-  isLoaded,
-  isEmpty
+  isLoaded
 } from 'react-redux-firebase'
 import {
   createFirestoreInstance,
   firestoreReducer
 } from 'redux-firestore'
 
-import colorsReducer from '../src/store/reducers/colors'
-import navigationReducer from '../src/store/reducers/navigation'
+import colorsReducer from './store/reducers/colors'
+import navigationReducer from './store/reducers/navigation'
+import submitReducer from './store/reducers/submit'
+import couponReducer from './store/reducers/coupon'
+import userReducer from './store/reducers/user'
+import historyReducer from './store/reducers/history'
+import doctorsReducer from './store/reducers/doctors'
+import appointmentsReducer from './store/reducers/appointments'
+import idReducer from './store/reducers/id'
+import strainsReducer from './store/reducers/strains'
 
-import SplashScreen from '../src/screens/SplashScreen'
-import AuthSwitch from '../src/navigation/AuthSwitch'
-import NavigationSwitch from './navigation/NavigationSwitch'
+import SplashScreen from './components/SplashScreen'
 
-import firebaseConfig from '../src/firebase/config'
+import firebaseConfig from './firebase/config'
+
+import { setColors } from './store/actions/colors'
+
+const Website = React.lazy(() => import('./website/Website'))
+const GreenApp = React.lazy(() => import('./app/GreenApp'))
+const GreenBack = React.lazy(() => import('./backend/GreenBack'))
 
 const rrfConfig = {
   userProfile: 'users',
-  useFirestoreForProfile: true
+  enableLogging: false,
+  useFirestoreForProfile: true,
 }
 
 firebase.initializeApp(firebaseConfig)
@@ -54,7 +65,15 @@ const rootReducer = combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
   colors: colorsReducer,
-  navigation: navigationReducer
+  navigation: navigationReducer,
+  submit: submitReducer,
+  coupon: couponReducer,
+  user: userReducer,
+  history: historyReducer,
+  doctors: doctorsReducer,
+  appointments: appointmentsReducer,
+  id: idReducer,
+  strains: strainsReducer
 })
 
 const initialState = {}
@@ -74,49 +93,34 @@ const rrfProps = {
 }
 
 function AuthIsLoaded({ children }) {
-  const auth = useSelector(state => state.firebase.auth)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setColors())
+
+      return () => null
+  }, [dispatch])
+  
+  const { auth } = useSelector(state => state.firebase)
   if (!isLoaded(auth)) return <SplashScreen />
   return children
-}
-
-function PrivateRoute({ children, ...rest }) {
-  const auth = useSelector(state => state.firebase.auth)
-  console.log(auth)
-  return (
-    <Route
-      {...rest}
-      render={({ location }) => 
-        isLoaded(auth) && !isEmpty(auth) ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/signup",
-              state: { from: location }
-            }}
-          />
-        )
-      } 
-    />
-  )
 }
 
 const App = () => {
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <Router>
-          <AuthIsLoaded>
-            <Switch>
-              <Route path="/signup">
-                <AuthSwitch />
-              </Route>
-              <PrivateRoute path ="/">
-                <NavigationSwitch />
-              </PrivateRoute>
-            </Switch>
-          </AuthIsLoaded>
-        </Router>
+        <AuthIsLoaded>
+          <Suspense fallback={<SplashScreen />}>
+            <Router>
+              <Switch>
+                  <Route exact path='/' component={Website} />
+                  <Route path='/app' component={GreenApp} />
+                  <Route path='/greenback' component={GreenBack} />
+                  <Route component={Website} />
+              </Switch>
+            </Router>
+          </Suspense>
+        </AuthIsLoaded>
       </ReactReduxFirebaseProvider>
     </Provider>
   );

@@ -1,10 +1,11 @@
 import {
-    SET_AUTH_NAV_NAME
+    SET_AUTH_NAV_NAME,
+    SET_REGISTRATION_COMPONENT
 } from '../actions/navigation'
 
 const initialState = {
     authNavName: 'signup',
-    signupNavName: 'coupon',
+    registrationNavName: '',
     mainNavName: 'main'
 }
 
@@ -14,6 +15,11 @@ const navigationReducer = (state = initialState, action) => {
             return {
                 ...state,
                 authNavName: action.updatedAuthNavName
+            }
+        case SET_REGISTRATION_COMPONENT:
+            return {
+                ...state,
+                registrationNavName: action.updatedRegistrationNavName
             }
         default:
             return state

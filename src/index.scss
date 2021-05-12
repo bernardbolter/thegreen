@@ -1,0 +1,115 @@
+/* open-sans-300 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/open-sans-v18-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./fonts/open-sans-v18-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/open-sans-v18-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/open-sans-v18-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/open-sans-v18-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/open-sans-v18-latin-300.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/open-sans-v18-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./fonts/open-sans-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/open-sans-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/open-sans-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/open-sans-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/open-sans-v18-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('./fonts/open-sans-v18-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./fonts/open-sans-v18-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/open-sans-v18-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/open-sans-v18-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/open-sans-v18-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/open-sans-v18-latin-italic.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-600 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/open-sans-v18-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./fonts/open-sans-v18-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/open-sans-v18-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/open-sans-v18-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/open-sans-v18-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/open-sans-v18-latin-600.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/bebas-neue-v2-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./fonts/bebas-neue-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/bebas-neue-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/bebas-neue-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/bebas-neue-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/bebas-neue-v2-latin-regular.svg#BebasNeue') format('svg'); /* Legacy iOS */
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: none;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 12px;
+
+  @media screen and (min-width: 375px) {
+    font-size: 14px;
+  }
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+h5 {
+  font-weight: 200;
+  font-size: 10px;
+
+  @media screen and (min-width: 375px) {
+    font-size: 12px;
+  }
+}
+
+h6 {
+  font-weight: 200;
+  font-size: 11px;
+}

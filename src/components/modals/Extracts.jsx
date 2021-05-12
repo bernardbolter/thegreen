@@ -8,7 +8,7 @@ import { ReactComponent as Times } from '../../svg/modalSvgs/times.svg'
 
 import './modals.scss'
 
-const Extracts = () => {
+const Extracts = ({ textColor }) => {
     const colors = useSelector(state => state.colors)
     const [extractsOpen, setExtractsOpen] = useState(false)
     return (
@@ -19,19 +19,19 @@ const Extracts = () => {
             >
                 <div className="extracts-info-svg">
                     <Info 
-                        style={{ fill: colors.dark }}
+                        style={{ fill: textColor }}
                     />
                 </div>
                 <h5
-                    style={{ color: colors.dark }}
+                    style={{ color: textColor }}
                 >{colors.lightName}</h5>
                 <div className="extracts-times-svg">
                     <Times 
-                        style={{ fil: colors.dark }}
+                        style={{ fill: textColor }}
                     />
                 </div>
                 <h5
-                    style={{ color: colors.dark }}
+                    style={{ color: textColor }}
                 >{colors.darkName}</h5>
             </div>
             <CSSTransition
